@@ -1,4 +1,4 @@
-[![Playwright Tests](https://github.com/raptatinha/tau-playwright-advanced/actions/workflows/playwright.yml/badge.svg)](https://github.com/raptatinha/tau-playwright-advanced/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/raptatinha/tau-advanced-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/raptatinha/tau-advanced-playwright/actions/workflows/playwright.yml)
 
 # Advanced Playwright
 
@@ -22,9 +22,9 @@ If you are new to Playwright, I invite you to a look at the [Introduction to Pla
 
 ## Fork and clone the project
 
-1. Copy the project URL `https://github.com/raptatinha/tau-playwright-advanced.git`;
+1. Copy the project URL `https://github.com/raptatinha/tau-advanced-playwright.git`;
 1. Fork the project following the [GitHub instructions](https://docs.github.com/en/get-started/quickstart/fork-a-repo) - (use the parameter --clone=true);
-1. Access the forked project `cd tau-playwright-advanced`
+1. Access the forked project `cd tau-advanced-playwright`
 
 NOTE: Remember to add the secrets & variables to your local repo.
 
@@ -83,6 +83,6 @@ ___
 
 💡 Share on LinkedIn something interesting you've learned! Don't forget to tag me [Renata Andrade](https://www.linkedin.com/in/raptatinha/).
 
-💜 If you have questions, feel free to post them on [github](https://github.com/raptatinha/tau-playwright-advanced/issues).
+💜 If you have questions, feel free to post them on [github](https://github.com/raptatinha/tau-advanced-playwright/issues).
 
 Happy Testing 🎭

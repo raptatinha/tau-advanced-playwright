@@ -1,6 +1,6 @@
 # https://github.com/marketplace/actions/slack-github-actions-slack-integration
 username: GitHub-CI
-icon_url: https://github.com/raptatinha/tau-playwright-advanced-temp/blob/main/.github/config/TAU_Advanced-Playwright_230226.png
+icon_url: https://github.com/raptatinha/tau-advanced-playwright/blob/main/.github/config/TAU_Advanced-Playwright_230226.png
 
 pretext: Triggered via {{eventName}} by {{actor}} {{or action "action"}} {{ref}} `{{diffRef}}`
 title: GitHub Actions
