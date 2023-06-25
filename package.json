@@ -1,0 +1,23 @@
+{
+  "name": "tau-playwright-advanced-temp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-ui": "npx playwright test tests/ui/",
+    "test-ui-c": "npx playwright test tests/ui/specs/ --project=chromium",
+    "test-ui-h": "npx playwright test tests/ui/specs/ --headed",
+    "test-ui-auth-admin": "npx playwright test profile-stored-auth-multi-role-admin.spec.ts --project=chromium-auth ",
+    "test-ui-auth-user": "npx playwright test profile-stored-auth-multi-role-user.spec.ts --project=chromium-auth ",
+    "test-ui-auth": "npx playwright test profile-stored-auth-multi-role-example.spec.ts --project=chromium-auth ",
+    "test-vrt": "npx playwright test visual-regression.spec.ts --project=chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@applitools/eyes-playwright": "^1.17.5",
+    "@playwright/test": "^1.35.1",
+    "dotenv": "^16.1.4"
+  }
+}

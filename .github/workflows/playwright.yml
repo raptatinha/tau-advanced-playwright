@@ -1,0 +1,51 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  USERNAME: ${{ secrets.USERNAME }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  USERID: ${{ secrets.USERID }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  USERNAME_ADMIN: ${{ secrets.USERNAME_ADMIN }}
+  USERNAME_USER: ${{ secrets.USERNAME_USER }}
+  APITOKEN: ${{ secrets.APITOKEN }}
+  APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+  ENV: ${{ vars.ENV }}
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright@1.35.0 install --with-deps
+    - name: Run Playwright tests
+      run: npm run test-ui-c
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: index.html
+        path: playwright-report/index.html
+        retention-days: 30
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results
+        path: test-results/
+        retention-days: 30
+    - uses: act10ns/slack@v1
+      if: always()
+      with:
+        status: ${{ job.status }}
+        config: .github/config/slack.yml
