@@ -1,4 +1,4 @@
-[![Playwright Tests](https://github.com/raptatinha/tau-playwright-advanced-temp/actions/workflows/playwright.yml/badge.svg)](https://github.com/raptatinha/tau-playwright-advanced-temp/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/raptatinha/tau-playwright-advanced/actions/workflows/playwright.yml/badge.svg)](https://github.com/raptatinha/tau-playwright-advanced/actions/workflows/playwright.yml)
 
 # Advanced Playwright
 
