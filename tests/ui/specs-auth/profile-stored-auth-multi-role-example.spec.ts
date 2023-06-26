@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto(pages.profile);
 });
 
-test.describe.skip('Book Store Application - Profile - Admin', () => {
+test.describe('Book Store Application - Profile - Admin', () => {
     test('admin and user', async ({ browser }) => {
         const adminContext = await browser.newContext({ storageState: '.auth/admin.json' });
         const adminPage = await adminContext.newPage();

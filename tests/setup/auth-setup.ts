@@ -7,9 +7,6 @@ const adminFile = '.auth/admin.json';
 setup('authenticate as admin', async ({ page }) => {
   const user = process.env.USERNAME_ADMIN!;
   const password = process.env.PASSWORD!;
-  const { baseURL } = setup.info().project.use;
-  
-  await page.goto(baseURL+uiPages.login);
   await doLogin(page, user, password);
 
   await page.context().storageState({ path: adminFile });

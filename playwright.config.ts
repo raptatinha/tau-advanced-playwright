@@ -26,17 +26,12 @@ export default defineConfig({
       name: 'auth-setup', 
       testMatch: /auth-setup\.ts/ 
     },
-    { 
-      name: 'global-setup', 
-      testMatch: /global-setup\.ts/ 
-    },
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
         storageState: 'storageState.json',
        },
-       dependencies: ['global-setup'],
     },
     {
       name: 'chromium-auth',

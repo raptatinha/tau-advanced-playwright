@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto(pages.profile);
 });
 
-test.describe.skip('Book Store Application - Profile', () => {
+test.describe('Book Store Application - Profile', () => {
     test.use({ storageState: '.auth/user.json' });
     test('Sort books - user', async ( { page } ) => { 
         profilePage = new ProfilePage(page);
