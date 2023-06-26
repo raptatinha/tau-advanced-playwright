@@ -1,4 +1,4 @@
-import { test, type Page, type BrowserContext } from '@playwright/test';
+import { test } from '@playwright/test';
 import ProfilePage from '../pages/profile-page';
 import pages from '../../utils/pages';
 
