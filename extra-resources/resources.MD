@@ -7,7 +7,11 @@ If you are new to Playwright, I invite you to a look at the [Introduction to Pla
 
 - [Advanced Playwright](#advanced-playwright)
   * [Chapter 1 - Extra resources](#chapter-1---extra-resources)
-  * [Chapter 2 - Extra resources](#chapter-3---extra-resources)
+  * [Chapter 2 - Extra resources](#chapter-2---extra-resources)
+  * [Chapter 3 - Extra resources](#chapter-3---extra-resources)
+  * [Chapter 4 - Extra resources](#chapter-4---extra-resources)
+  * [Chapter 5 - Extra resources](#chapter-5---extra-resources)
+  * [Chapter 6 - Extra resources](#chapter-6---extra-resources)
   * [GitHub repos worth taking a look](#github-repos-worth-taking-a-look)
 
 ## Chapter 1 - Extra resources
@@ -20,6 +24,31 @@ If you are new to Playwright, I invite you to a look at the [Introduction to Pla
 1. https://playwright.dev/docs/auth#authenticate-with-api-request
 
 ## Chapter 2 - Extra resources
+1. https://playwright.dev/docs/test-fixtures
+
+## Chapter 3 - Extra resources
+1. https://playwright.dev/docs/api/class-apirequestcontext
+1. https://playwright.dev/docs/api/class-apirequest
+1. https://playwright.dev/docs/api/class-apiresponse
+
+## Chapter 4 - Extra resources
+1. https://playwright.dev/docs/test-parameterize#passing-environment-variables
+1. https://playwright.dev/docs/mock#mock-api-requests
+1. https://playwright.dev/docs/mock-browser-apis
+1. https://playwright.dev/docs/test-parameterize#create-tests-via-a-csv-file
+
+## Chapter 5 - Extra resources
+1. https://testautomationu.applitools.com/playwright-intro/chapter4.html
+1. https://auth.applitools.com/users/register
+1. https://applitools.com/tutorials/quickstart/web/playwright/typescript
+1. https://applitools.com/docs/api-ref/sdk-api/playwright/js-intro/checksettings
+
+## Chapter 6 - Extra resources
+1. https://playwright.dev/docs/ci
+1. https://playwright.dev/docs/test-parallel
+1. https://testautomationu.applitools.com/github-actions-for-testing/
+1. https://timdeschryver.dev/blog/using-playwright-test-shards-in-combination-with-a-job-matrix-to-improve-your-ci-speed
+1. https://playwrightsolutions.com/whats-an-easy-way-to-tell-how-many-workers/
 
 ## GitHub repos worth taking a look
 
