@@ -1,0 +1,41 @@
+# Advanced Playwright
+
+Hi 👋🏽!
+
+Welcome to the course "Advanced Playwright" by [Renata Andrade](https://testingwithrenata.com/) for the [Test Automation University](https://testautomationu.applitools.com/).
+If you are new to Playwright, I invite you to a look at the [Introduction to Playwright](https://testautomationu.applitools.com/instructors/renata_andrade.html) course.
+
+- [Advanced Playwright](#advanced-playwright)
+  * [Chapter 1 - Exercises](#chapter-1---exercises)
+  * [Chapter 2 - Exercises](#chapter-2---exercises)
+
+## Chapter 1 - Exercises
+
+1. Comment the line `test.use({ storageState: { cookies: [], origins: [] } });` from [login.spec.ts](/tests/ui/specs/login.spec.ts), add a `.only` at the `test.describe` inside the same file and run the test with the command `test-ui-c`. Observe what happens. Revert the first change and run the test again. See that it's passing again. Revert all the code at the end.
+
+1. In the [playwright.config.ts](/playwright.config.ts) change the path of the `storageState`, add some folder name and change the file name. In the [profile-stored-authentication.spec.ts](/tests/ui/specs/profile-stored-authentication.spec.ts) add a `.only` at the `test.describe` and run the test with the command `test-ui-c`. Observe the result. What differences did you notice?
+
+1. In the [global-setup.ts](/tests/setup/global-setup.ts) change the headless mode to `false`. Run the test [profile-stored-authentication.spec.ts](/tests/ui/specs/profile-stored-authentication.spec.ts) by adding a `.only` at the `test.describe` and using the command `test-ui-c`. Observe the result. Was it any faster than in headless mode?
+
+1. In the [global-setup.ts](/tests/setup/global-setup.ts) explore other browsers instead of chromium.  Run the test [profile-stored-authentication.spec.ts](/tests/ui/specs/profile-stored-authentication.spec.ts) by adding a `.only` at the `test.describe` and using the command `test-ui-c`. What browser performed better?
+
+1. In the [global-setup.ts](/tests/setup/global-setup.ts) implement the trace of failures by following this doc // https://playwright.dev/docs/test-global-setup-teardown#capturing-trace-of-failures-during-global-setup. Force a test failure (by passing an invalid username or password for example). What are the advantages of using trace in this file?
+
+1. Implement a regular sign in test and a sign in using stored state for another website that you have access to. If you need a suggestion, you can use https://demo.applitools.com/ (any username and password) or https://www.saucedemo.com/. What challenges did you have?
+
+1. Implement an authentication via API request following this doc https://playwright.dev/docs/auth#authenticate-with-api-request. You can use the same https://demoqa.com/books or any other website. How faster that is compared to the UI sign in?
+
+1. Implement a multi-role sing in test using the "auth-setup" strategy (using something similar to the [auth-setup.ts](/tests/setup/auth-setup.ts) file & [playwright-auth.config.ts](/playwright-auth.config.ts) setup & [profile-stored-auth-multi-role-user.spec.ts](/tests/ui/specs-auth/profile-stored-auth-multi-role-user.spec.ts)) for an application that you have access to. If you need a suggestion, you can use https://www.saucedemo.com/ (there are different users that could be used for different scenarios).
+
+1. Implement a multi-role sing in test using the "auth-setup" strategy (using something similar to the [auth-setup.ts](/tests/setup/auth-setup.ts) file & [playwright-auth.config.ts](/playwright-auth.config.ts) setup & [profile-stored-auth-multi-role-example.spec.ts](/tests/ui/specs-auth/profile-stored-auth-multi-role-example.spec.ts)) for an application that you have access to. If you need a suggestion, you can use https://www.saucedemo.com/ (there are different users that could be used for different scenarios).
+
+
+## Chapter 2 - Exercises
+
+___
+
+💡 Share on LinkedIn something interesting you've learned! Don't forget to tag me [Renata Andrade](https://www.linkedin.com/in/raptatinha/).
+
+💜 If you have questions, feel free to post them on [github](https://github.com/raptatinha/tau-advanced-playwright/issues).
+
+Happy Testing 🎭
