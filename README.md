@@ -2,7 +2,7 @@
 
 # Advanced Playwright
 
-Hi 👋🏽!
+Hi ed 👋🏽!
 
 Welcome to the course "Advanced Playwright" by [Renata Andrade](https://testingwithrenata.com/) for the [Test Automation University](https://testautomationu.applitools.com/).
 If you are new to Playwright, I invite you to a look at the [Introduction to Playwright](https://testautomationu.applitools.com/instructors/renata_andrade.html) course.
