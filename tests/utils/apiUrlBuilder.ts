@@ -47,7 +47,7 @@ export function buildUrl(endpoint: string, userId?: string, isbn?: string) {
   .filter(Boolean)
   .join('?');
   
-  return url;
+  return endpoint;
 }
 
 /**
