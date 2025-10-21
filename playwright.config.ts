@@ -21,6 +21,25 @@ export default defineConfig({
         : baseEnvUrl.local.home
   },
 
+export default defineConfig({
+  globalSetup: require.resolve('./tests/setup/global-setup'),
+  fullyParallel: false,
+  forbidOnly: !!process.env.CI,
+  retries: 0,
+  workers: undefined,
+  reporter: 'html',
+  // timeout: 5000,
+  use: {
+    storageState: 'storageState.json',
+    trace: 'on',
+    baseURL: process.env.ENV === 'production' 
+      ? baseEnvUrl.production.home
+      : process.env.ENV === 'staging' 
+        ? baseEnvUrl.staging.home
+        : baseEnvUrl.local.home
+  },
+
+  
   projects: [
     { 
       name: 'auth-setup', 
