@@ -11,7 +11,8 @@
     "test-ui-auth-user": "npx playwright test profile-stored-auth-multi-role-user.spec.ts --project=chromium-auth -c playwright-auth.config.ts",
     "test-ui-auth": "npx playwright test profile-stored-auth-multi-role-example.spec.ts --project=chromium-auth -c playwright-auth.config.ts",
     "test-vrt": "npx playwright test visual-regression.spec.ts --project=chromium",
-    "test-ui-setup": "npx playwright test tests/ui/specs/ --project=chromium -c playwright-setup-projects.config.ts"
+    "test-ui-setup": "npx playwright test tests/ui/specs/ --project=chromium -c playwright-setup-projects.config.ts",
+    "test-ui-mocked": "npx playwright test login-mocked tests/ui/specs/profile book-with-dynamic-pom --project=chromium -c playwright-mocked-login.config.ts"
   },
   "keywords": [],
   "author": "",

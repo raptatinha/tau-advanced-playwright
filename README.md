@@ -54,6 +54,7 @@ Take a look at the [package.json](package.json) - scripts for more details.
 
 - `npm run test-ui-c` runs all tests on chromium (except the auth)
 - `npm run test-ui-setup` runs the same tests with a setup project instead of the global setup
+- `npm run test-ui-mocked` runs the tests that work with a mocked login. Use it when demoqa rejects the login
 - `npm run test-ui-auth-admin` runs profile-stored-auth-multi-role-admin.spec.ts
 - `npm run test-ui-auth-user` runs profile-stored-auth-multi-role-user.spec.ts
 - `npm run test-ui-auth` runs profile-stored-auth-multi-role-example.spec.ts
@@ -88,6 +89,7 @@ Take a look at [Troubleshooting](TROUBLESHOOTING.md) first. It has the answers t
 - Regular authentication with page objects;
 - Stored authentication with global-setup via UI;
 - Stored authentication with Setup Projects (update notes);
+- Mocked login (update notes);
 - Stored authentication for multi users;
 - Advanced - auth via API request;
 ### Chapter 2: Dynamic Page Objects & Fixtures

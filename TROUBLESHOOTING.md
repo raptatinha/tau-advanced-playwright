@@ -21,7 +21,7 @@ The `.env` file is missing, or has another name, such as `.env.example` or `.env
 demoqa only accepts the newest session of a user, so someone else using the shared user can end yours. Use your own user. If you already do, log out of the website in your browser, and run the tests again.
 
 ### Login fails once in a while
-demoqa is a free website. Sometimes it rejects the right password for a few minutes, even when you run one test at a time. Wait five minutes and run the test again. If it keeps failing, follow the steps above.
+demoqa is a free website. Sometimes it rejects the right password for a few minutes, even when you run one test at a time. Wait five minutes and run the test again, or use `npm run test-ui-mocked` to continue without the login. If it keeps failing, follow the steps above.
 
 ## API
 

@@ -6,6 +6,10 @@ The video was recorded in 2023. Last reviewed: November 2026.
 - **Interception:** the test calls `response.finished()` instead of `response.json()`, because the page reload could discard the response body.
 - **`.env`:** copy the new `.env.example`, because one of the values changed.
 
+## Another mock example
+
+[mockLogin.ts](../tests/utils/mockLogin.ts) mocks the login with `context.route()`, as in the interception test. See "Mocked login" in the [Chapter 1 notes](chapter1.MD).
+
 ## Different data for each environment
 
 Create one file per environment and choose it with `ENV`. With normal imports, the editor still suggests the fields. `typeof local` makes TypeScript tell you when an environment has a missing or extra field.
