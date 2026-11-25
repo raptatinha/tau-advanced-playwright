@@ -4,20 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-ui": "npx playwright test tests/ui/",
+    "test-ui": "npm run test-ui-c && npm run test-ui-auth-admin && npm run test-ui-auth-user && npm run test-ui-auth",
     "test-ui-c": "npx playwright test tests/ui/specs/ --project=chromium",
-    "test-ui-h": "npx playwright test tests/ui/specs/ --headed",
-    "test-ui-auth-admin": "npx playwright test profile-stored-auth-multi-role-admin.spec.ts --project=chromium-auth ",
-    "test-ui-auth-user": "npx playwright test profile-stored-auth-multi-role-user.spec.ts --project=chromium-auth ",
-    "test-ui-auth": "npx playwright test profile-stored-auth-multi-role-example.spec.ts --project=chromium-auth ",
-    "test-vrt": "npx playwright test visual-regression.spec.ts --project=chromium"
+    "test-ui-h": "npx playwright test tests/ui/specs/ --project=chromium --headed",
+    "test-ui-auth-admin": "npx playwright test profile-stored-auth-multi-role-admin.spec.ts --project=chromium-auth -c playwright-auth.config.ts",
+    "test-ui-auth-user": "npx playwright test profile-stored-auth-multi-role-user.spec.ts --project=chromium-auth -c playwright-auth.config.ts",
+    "test-ui-auth": "npx playwright test profile-stored-auth-multi-role-example.spec.ts --project=chromium-auth -c playwright-auth.config.ts",
+    "test-vrt": "npx playwright test visual-regression.spec.ts --project=chromium",
+    "test-ui-setup": "npx playwright test tests/ui/specs/ --project=chromium -c playwright-setup-projects.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@applitools/eyes-playwright": "^1.17.5",
-    "@playwright/test": "^1.35.1",
-    "dotenv": "^16.1.4"
+    "@applitools/eyes-playwright": "1.53.1",
+    "@playwright/test": "1.65.1",
+    "dotenv": "18.0.10"
   }
 }

@@ -12,11 +12,13 @@ test.describe('Book Store Application - Profile - Admin', () => {
     test('admin and user', async ({ browser }) => {
         const adminContext = await browser.newContext({ storageState: '.auth/admin.json' });
         const adminPage = await adminContext.newPage();
+        await adminPage.goto(pages.profile);
         profilePage = new ProfilePage(adminPage);
         await profilePage.checkLoggedInAdmin();
         
         const userContext = await browser.newContext({ storageState: '.auth/user.json' });
         const userPage = await userContext.newPage();
+        await userPage.goto(pages.profile);
         profilePage = new ProfilePage(userPage);
         await profilePage.checkLoggedInUser();
         

@@ -7,49 +7,66 @@ Hi 👋🏽!
 Welcome to the course "Advanced Playwright" by [Renata Andrade](https://testingwithrenata.com/) for the [Test Automation University](https://testautomationu.applitools.com/).
 If you are new to Playwright, I invite you to a look at the [Introduction to Playwright](https://testautomationu.applitools.com/instructors/renata_andrade.html) course.
 
-## Dependencies
+## Watching the videos? Read this first
 
-- Playwright v1.35.1
-- Node v20.3.0
-- npm v9.6.5
-- VSCode Version: 1.79.1 (Universal)
-- Applitools v1.17.5
+The videos were recorded in 2023. The code in this repository was updated in 2026, and the website we test changed too, so a few things look different. Before each chapter, take a minute to read its update notes:
 
-> Pre requirements: 
-- [Node setup](https://nodejs.dev/en/learn/how-to-install-nodejs/)
-- [VS Code setup](https://code.visualstudio.com/learn/get-started/basics)
-- [iTerm setup](https://iterm2.com/documentation-one-page.html)
+[Chapter 1](course-updates/chapter1.MD) | [Chapter 2](course-updates/chapter2.MD) | [Chapter 3](course-updates/chapter3.MD) | [Chapter 4](course-updates/chapter4.MD) | [Chapter 5](course-updates/chapter5.MD) | [Chapter 6](course-updates/chapter6.MD)
+
+All the code is under `main`. The tests are examples for each chapter, so run the one you are watching.
+
+## Requirements
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/en/download) v24 (Playwright requires v20 or newer)
+- [VS Code](https://code.visualstudio.com/docs/getstarted/getting-started)
+- Any terminal. On Windows, we suggest Git Bash, which comes with Git.
+
+The packages used here are Playwright v1.65.1, Applitools Eyes for Playwright v1.53.1 and dotenv v18.0.10. `npm ci` installs these exact versions, so there is no need to update them.
 
 ## Fork and clone the project
 
-1. Copy the project URL `https://github.com/raptatinha/tau-advanced-playwright.git`;
-1. Fork the project following the [GitHub instructions](https://docs.github.com/en/get-started/quickstart/fork-a-repo) - (use the parameter --clone=true);
-1. Access the forked project `cd tau-advanced-playwright`
+1. Fork the project following the [GitHub instructions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
+1. Clone your fork, replacing `<your-user>`: `git clone https://github.com/<your-user>/tau-advanced-playwright.git`
+1. Access the project: `cd tau-advanced-playwright`
 
-NOTE: Remember to add the secrets & variables to your local repo.
+> **Forked it before this update?** [Sync your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) and copy the new `.env.example`.
 
-## Instal the project
+## Install the project
+On your terminal, inside the project folder, type:
 
-IMPORTANT: Create your [.env](.env) file following the [.env.example](.env.example). The `APPLITOOLS_API_KEY` is the only param you'll need to uptdate to your credentials.
+1. `npm ci`
+1. `npx playwright install`
+1. `cp .env.example .env`
 
-On your terminal, type:
+## Use your own user
+The tests use https://demoqa.com/, and the users in `.env.example` are shared by all students. They work, but a test can fail when someone else is using the same user. To avoid that:
 
-1. `npm i`
+1. Create your user at https://demoqa.com/register.
+1. In `.env`, change `USERNAME` and `PASSWORD`.
+1. Change `USERID` too. [Here is how to find it](TROUBLESHOOTING.md#user-id-not-correct).
+
+`USERNAME_ADMIN` and `USERNAME_USER` use the same `PASSWORD`. If you change it, create these two users with the same password, and [add their books](TROUBLESHOOTING.md#understanding-ecmascript-6-or-eloquent-javascript-second-edition-is-not-found).
+
+`APPLITOOLS_API_KEY` is only for Chapter 5. Git ignores the `.env` file. Never share it.
 
 ## Run the project
 Take a look at the [package.json](package.json) - scripts for more details.
-The tests are using https://demoqa.com/
 
 - `npm run test-ui-c` runs all tests on chromium (except the auth)
+- `npm run test-ui-setup` runs the same tests with a setup project instead of the global setup
 - `npm run test-ui-auth-admin` runs profile-stored-auth-multi-role-admin.spec.ts
 - `npm run test-ui-auth-user` runs profile-stored-auth-multi-role-user.spec.ts
-- `npm run test-ui-auth` runs profile-stored-auth-multi-role-example.spec.ts (test will fail due to application limitations)
-- `npm run test-vrt` runs visual-regression.spec.ts - visual regression testing with applitools 
+- `npm run test-ui-auth` runs profile-stored-auth-multi-role-example.spec.ts
+- `npm run test-vrt` runs visual-regression.spec.ts - visual regression testing with applitools. It is skipped until you follow the [Chapter 5 notes](course-updates/chapter5.MD)
+
+## Need help?
+Take a look at [Troubleshooting](TROUBLESHOOTING.md) first. It has the answers to the most common questions.
 
 ## Course Content:
 ### Chapter 1: Optimizing authentication
 - Regular authentication with page objects;
 - Stored authentication with global-setup via UI;
+- Stored authentication with Setup Projects (update notes);
 - Stored authentication for multi users;
 - Advanced - auth via API request;
 ### Chapter 2: Dynamic Page Objects & Fixtures

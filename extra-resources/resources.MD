@@ -16,6 +16,7 @@ If you are new to Playwright, I invite you to a look at the [Introduction to Pla
 
 ## Chapter 1 - Extra resources
 
+1. https://playwright.dev/docs/test-global-setup-teardown#option-1-project-dependencies
 1. https://playwright.dev/docs/test-global-setup-teardown#configure-globalsetup-and-globalteardown
 1. https://playwright.dev/docs/test-global-setup-teardown#capturing-trace-of-failures-during-global-setup  
 1. https://playwright.dev/docs/trace-viewer

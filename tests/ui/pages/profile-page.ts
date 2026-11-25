@@ -18,8 +18,8 @@ class SearchPage {
     this.bookAdminLabel = page.getByText('Eloquent JavaScript, Second Edition');
     this.booksCollectionRequestRegExp = new RegExp(apiPaths.account);
     this.bookUserLabel = page.getByText('Understanding ECMAScript 6');
-    this.gridRow1 = page.locator('div:nth-child(1) > .rt-tr > div:nth-child(2)').last();
-    this.gridRow2 = page.locator('div:nth-child(2) > .rt-tr > div:nth-child(2)');
+    this.gridRow1 = page.locator('tbody tr:nth-child(1) td:nth-child(2)');
+    this.gridRow2 = page.locator('tbody tr:nth-child(2) td:nth-child(2)');
     this.notLoggedInLabel = page.getByText('Currently you are not logged into the Book Store application, please visit the login page to enter or register page to register yourself.');
     this.searchField = page.getByPlaceholder('Type to search');
     this.titleHeaderLabel = page.getByText('Title');

@@ -4,6 +4,16 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: '0 13 * * 1' # every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# demoqa rejects logins of the same user at the same time
+concurrency:
+  group: demoqa
 
 env:
   USERNAME: ${{ secrets.USERNAME }}
@@ -14,38 +24,46 @@ env:
   USERNAME_USER: ${{ secrets.USERNAME_USER }}
   APITOKEN: ${{ secrets.APITOKEN }}
   APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-  ENV: ${{ vars.ENV }}
+  ENV: ${{ vars.ENV || 'local' }}
 
 jobs:
   test:
+    # Pull requests from forks don't have access to the secrets
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        node: [24, 26]
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v7
       with:
-        node-version: 20
+        node-version: ${{ matrix.node }}
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright@1.35.0 install --with-deps
+      run: npx playwright install --with-deps chromium
     - name: Run Playwright tests
       run: npm run test-ui-c
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       if: always()
       with:
-        name: index.html
+        name: playwright-report-node-${{ matrix.node }}
         path: playwright-report/index.html
         retention-days: 30
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       if: always()
       with:
-        name: test-results
+        name: test-results-node-${{ matrix.node }}
         path: test-results/
         retention-days: 30
-    - uses: act10ns/slack@v1
-      if: always()
+    - uses: act10ns/slack@v2
+      if: always() && env.SLACK_WEBHOOK_URL != ''
+      continue-on-error: true
       with:
         status: ${{ job.status }}
-        config: .github/config/slack.yml
+        config: .github/config/ui-slack-integration.yml

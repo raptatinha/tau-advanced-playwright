@@ -25,5 +25,5 @@ async function watchAPICallAndMockResponse(page: Page, context: BrowserContext) 
         page.waitForResponse(new RegExp(apiPaths.account)),
         await page.reload(),
     ]);
-    await response.json();
+    await response.finished();
 }

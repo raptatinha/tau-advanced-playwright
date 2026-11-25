@@ -33,6 +33,7 @@ test.beforeEach(async ({ page }) => {
   loginPage = await hooks.beforeEach(page, LoginPage, pages.loginPage);
   await loginPage.doLogin(userName, password);
   await loginPage.checkLoggedIn();
+  await page.context().storageState({ path: 'storageState.json' }); // demoqa only accepts the newest session, so save it for the next tests
 });
 
 test.describe('Book - Fixture & API with isolated auth', () => {

@@ -23,6 +23,8 @@ let eyes: Eyes;
 let profilePage: ProfilePage;
 let menuPage: MenuPage;
 
+test.skip(!process.env.APPLITOOLS_API_KEY, 'Add your APPLITOOLS_API_KEY to the .env file');
+
 test.beforeAll(async() => {
     Runner = new VisualGridRunner({ testConcurrency: 5 });
     const runnerName = 'Ultrafast Grid';
