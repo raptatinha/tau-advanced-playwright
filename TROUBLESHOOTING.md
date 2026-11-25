@@ -18,9 +18,15 @@ Your code is from before the 2026 update. [Sync your fork](https://docs.github.c
 The `.env` file is missing, or has another name, such as `.env.example` or `.env.txt`.
 
 ### `User not authorized!`
-demoqa only accepts the newest session of a user. Log out of the website in your browser, and run the tests again.
+demoqa only accepts the newest session of a user, so someone else using the shared user can end yours. Use your own user. If you already do, log out of the website in your browser, and run the tests again.
+
+### Login fails once in a while
+demoqa is a free website. Sometimes it rejects the right password for a few minutes, even when you run one test at a time. Wait five minutes and run the test again. If it keeps failing, follow the steps above.
 
 ## API
+
+### Where do I get `USERID` and `APITOKEN`?
+For `USERID`, see the next question. Leave `APITOKEN` empty: no test uses it.
 
 ### `User Id not correct!`
 `USERID` needs to be the id of the user in `USERNAME`. To find yours, log in at https://demoqa.com/login, open the developer tools of your browser (F12), and look for the `userID` cookie (in Chrome: Application > Cookies > https://demoqa.com).
@@ -38,6 +44,9 @@ They need another config. Use the `test-ui-auth` scripts in [package.json](packa
 
 ### "Understanding ECMAScript 6" or "Eloquent JavaScript, Second Edition" is not found
 With your own users, add the first book to the user in `USERNAME_USER` and the second one to the user in `USERNAME_ADMIN`.
+
+### UI Mode doesn't open, or shows a login error
+The global setup runs before UI Mode opens, so fix the login first, with the steps above. Then use `npm run test-ui-c -- --ui`.
 
 ### The book page is blank
 Use `/books?search=<isbn>`. The website changed it from `/books?book=<isbn>`.

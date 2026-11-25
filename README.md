@@ -59,6 +59,27 @@ Take a look at the [package.json](package.json) - scripts for more details.
 - `npm run test-ui-auth` runs profile-stored-auth-multi-role-example.spec.ts
 - `npm run test-vrt` runs visual-regression.spec.ts - visual regression testing with applitools. It is skipped until you follow the [Chapter 5 notes](course-updates/chapter5.MD)
 
+You can add options after `--`, for example:
+
+- `npm run test-ui-c -- --ui` opens the UI Mode
+- `npm run test-ui-c -- --headed` shows the browser
+- `npm run test-ui-c -- --grep "Check logged in"` runs the tests with this name
+
+Don't use only `npx playwright test`: it mixes tests that need different configs.
+
+## Where do I start?
+The code is ready, so you don't write it from the beginning. Make sure the first command below passes, then watch each chapter with its files open.
+
+| Chapter | Files to open | Run |
+|---|---|---|
+| 1.1 | `login.spec.ts`, `profile-stored-authentication.spec.ts`, `global-setup.ts` | `npx playwright test login.spec.ts --project=chromium` |
+| 1.2 | `specs-auth` folder, `auth-setup.ts` | `npm run test-ui-auth-admin` |
+| 2 | `profile-with-dynamic-pom.spec.ts`, `book-with-fixture-and-api.spec.ts`, `hooks.ts`, `books-fixture.ts` | `npx playwright test dynamic-pom --project=chromium` |
+| 3 | `book-with-fixture-and-api.spec.ts`, `api` folder, `apiRequestUtils.ts` | `npx playwright test book-with-fixture --project=chromium` |
+| 4 | `profile-api-interception.spec.ts`, `data` folder | `npx playwright test interception --project=chromium` |
+| 5 | `visual-regression.spec.ts` | `npm run test-vrt` |
+| 6 | `.github/workflows/playwright.yml` | n/a |
+
 ## Need help?
 Take a look at [Troubleshooting](TROUBLESHOOTING.md) first. It has the answers to the most common questions.
 
