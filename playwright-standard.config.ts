@@ -1,14 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './tests/utils/environmentBaseUrl';
 
-require('dotenv').config();
+require('dotenv').config({ override: true, quiet: true });
 
 export default defineConfig({
   globalSetup: require.resolve('./tests/setup/global-setup'),
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
-  workers: undefined,
+  workers: 1, // demoqa rejects logins of the same user at the same time
   reporter: 'html',
   use: {
     storageState: 'storageState.json',

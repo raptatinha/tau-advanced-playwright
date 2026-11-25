@@ -23,22 +23,21 @@ class BookPage {
   }
 
   async goto(isbn: string) {
-    const params = { book: isbn };
+    const params = { search: isbn };
     const url = buildUrl(pages.bookStorePage, params);
     await this.page.goto(url);
   }
 
   async addToYourCollection(isDupe?: boolean) {
-    if (isDupe) {
-      let dialogMessage: string;
-  
-      this.page.on('dialog', async (dialog) => {
-          dialogMessage = dialog.message();
-          expect(dialogMessage).toBe(messages.book.duplicate);
-          await dialog.accept();
-        });
-    }
+    const expectedMessage = isDupe ? messages.book.duplicate : messages.book.added;
+    const dialogPromise = this.page.waitForEvent('dialog'); // start waiting before the click
+
     await this.addToYourCollectionButton.click();
+
+    const dialog = await dialogPromise;
+    const dialogMessage = dialog.message();
+    await dialog.accept();
+    expect(dialogMessage).toBe(expectedMessage);
   }
 
   async checkSpeakingJSIsbn() {

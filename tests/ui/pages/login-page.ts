@@ -32,7 +32,7 @@ class LoginPage {
 
   async checkLoggedIn() {
     await expect(this.page).toHaveURL(/.*profile/);
-    await expect(this.page).toHaveTitle(/DEMOQA/);
+    await expect(this.page).toHaveTitle(/demosite/);
   }
 
   async checkInvalidCredentials() {
