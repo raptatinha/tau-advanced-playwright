@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import MenuPage from '../pages/menu-page';
 import ProfilePage from '../pages/profile-page';
 import hooks from '../../utils/hooks';
+import apiPaths from '../../utils/apiPaths';
 import pages from '../../utils/pages';
 import {
     BatchInfo,
@@ -39,6 +40,7 @@ test.beforeAll(async() => {
 
 
 test.beforeEach(async ({page, context}) => {
+    await context.route(url => !url.hostname.endsWith('demoqa.com'), route => route.abort()); // block the ads
     eyes = new Eyes(Runner, Config);
     await eyes.open(
       page,
@@ -47,7 +49,9 @@ test.beforeEach(async ({page, context}) => {
       { width: 1024, height: 768 }
     );
 
+    const booksResponse = page.waitForResponse(new RegExp(apiPaths.account));
     profilePage = await hooks.beforeEach(page, ProfilePage, pages.profile);
+    await (await booksResponse).finished(); // the books load after the page
     menuPage = new MenuPage(page, context);
 });
 
